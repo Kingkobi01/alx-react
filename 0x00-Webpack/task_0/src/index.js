@@ -9,5 +9,3 @@ const paragraphs = [
 paragraphs.forEach((paragraph) => {
   $("body").append(`<p>${paragraph}</p>`);
 });
-
-console.log($("body").textContent);
