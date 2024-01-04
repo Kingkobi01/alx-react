@@ -6,7 +6,7 @@ test("should return current year", () => {
 
 test("should return correct footer copy", () => {
   expect(getFooterCopy(true)).toBe("Holberton School");
-  expect(getFooterCopy(false)).toBe("Holberton Schoolmain dashboard");
+  expect(getFooterCopy(false)).toBe("Holberton School main dashboard");
 });
 
 test("should return correct notification", () => {
