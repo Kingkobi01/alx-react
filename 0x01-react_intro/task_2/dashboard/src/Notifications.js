@@ -9,7 +9,11 @@ export const Notifications = () => (
     <ul>
       <li data="default">New course available</li>
       <li data="urgent">New resume available</li>
-      <li data="urgent">{getLatestNotification()}</li>
+
+      <li
+        data="urgent"
+        dangerouslySetInnerHTML={{ __html: getLatestNotification() }}
+      ></li>
     </ul>
     <button
       aria-label="close"
