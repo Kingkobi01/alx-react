@@ -3,10 +3,10 @@
     border: 2px dotted red;
 }
 
-.Notifications [data="default"] {
+.Notifications [data-notification-type="default"] {
     color: blue;
 }
 
-.Notifications [data="urgent"] {
+.Notifications [data-notification-type="urgent"] {
     color: red;
 }

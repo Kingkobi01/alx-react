@@ -1,5 +1,6 @@
 import { shallow } from "enzyme";
 import React from "react";
+import NotificationItem from "./NotificationItem";
 import { Notifications } from "./Notifications";
 
 describe("Tests for Notifications", () => {
@@ -11,15 +12,16 @@ describe("Tests for Notifications", () => {
     const component = shallow(<Notifications />);
     expect(component.find("ul")).toBeDefined();
   });
-  it("should render four li elements", () => {
+
+  it("should render four NotificationItem components", () => {
     const component = shallow(<Notifications />);
-    expect(component.find("ul li")).toHaveLength(4);
+    expect(component.find(NotificationItem)).toHaveLength(4);
   });
   it("renders correct text", () => {
     const component = shallow(<Notifications />);
 
-    expect(component.find("p").prop("children")).toBe(
-      "Here is the list of notifications"
+    expect(component.find(NotificationItem).first().html()).toBe(
+      '<li data-notification-type="default">New course available</li>'
     );
   });
 });
