@@ -11,6 +11,10 @@ describe("Tests for Notifications", () => {
     const component = shallow(<Notifications />);
     expect(component.find("ul")).toBeDefined();
   });
+  it("should render four li elements", () => {
+    const component = shallow(<Notifications />);
+    expect(component.find("ul li")).toHaveLength(4);
+  });
   it("renders correct text", () => {
     const component = shallow(<Notifications />);
 

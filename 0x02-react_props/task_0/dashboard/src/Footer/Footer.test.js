@@ -8,5 +8,9 @@ describe("App tests", () => {
 
     expect(component).toBeDefined();
   });
-  //
+
+  it('at the very least render the text “Copyright"', () => {
+    const component = shallow(<Footer />);
+    expect(component.html()).toContain("Copyright");
+  });
 });

@@ -8,5 +8,13 @@ describe("Login tests", () => {
 
     expect(component).toBeDefined();
   });
-  //
+
+  it("renders 2 input tags", () => {
+    const component = shallow(<Login />);
+    expect(component.find("input")).toHaveLength(2);
+  });
+  it("renders 2 label tags", () => {
+    const component = shallow(<Login />);
+    expect(component.find("label")).toHaveLength(2);
+  });
 });

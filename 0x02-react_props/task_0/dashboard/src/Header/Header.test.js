@@ -8,4 +8,14 @@ describe("Header tests", () => {
 
     expect(component).toBeDefined();
   });
+
+  it("renders img tag", () => {
+    const component = shallow(<Header />);
+    expect(component.find("img")).toBeDefined();
+  });
+
+  it("renders h1 tag", () => {
+    const component = shallow(<Header />);
+    expect(component.find("h1")).toBeDefined();
+  });
 });

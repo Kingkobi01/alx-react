@@ -1,5 +1,8 @@
 import { shallow } from "enzyme";
 import React from "react";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
+import Login from "../Login/Login";
 import App from "./App";
 
 describe("App tests", () => {
@@ -8,19 +11,19 @@ describe("App tests", () => {
 
     expect(component).toBeDefined();
   });
-  it("should render the App-header div", () => {
-    const component = shallow(<App />);
+  it("should render the Header component", () => {
+    const component = shallow(<Header />);
 
-    expect(component.find(".App-header")).toBeDefined();
+    expect(component).toBeDefined();
   });
-  it("should render the App-body div", () => {
-    const component = shallow(<App />);
+  it("should render the Login component", () => {
+    const component = shallow(<Login />);
 
-    expect(component.find(".App-body")).toBeDefined();
+    expect(component).toBeDefined();
   });
-  it("should render the App-footer div", () => {
-    const component = shallow(<App />);
+  it("should render the Footer component", () => {
+    const component = shallow(<Footer />);
 
-    expect(component.find(".App-footer")).toBeDefined();
+    expect(component).toBeDefined();
   });
 });
