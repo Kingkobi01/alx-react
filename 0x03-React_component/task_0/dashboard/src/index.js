@@ -4,9 +4,14 @@ import App from "./App/App";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+function handleLogout() {
+  console.log("Logging you out");
+}
+
 root.render(
   <React.StrictMode>
-    <App isLoggedIn={false} />
+    <App isLoggedIn={false} logout={handleLogout} />
   </React.StrictMode>
 );
 

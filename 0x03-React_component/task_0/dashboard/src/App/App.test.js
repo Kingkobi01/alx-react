@@ -43,4 +43,56 @@ describe("App tests", () => {
 
     expect(component).toBeDefined();
   });
+
+  it("calls logOut and displays alert on Control + H key press", () => {
+    // Mock the logOut function
+    const mockLogOut = jest.fn();
+
+    // Spy on the window.alert function
+    const alertSpy = jest.spyOn(window, "alert");
+
+    // Shallow render the App component with the mocked logOut function
+    const wrapper = shallow(<App logOut={mockLogOut} />);
+
+    // Simulate a Control + H key press
+    wrapper.instance().handleKeyDown({
+      ctrlKey: true,
+      key: "h",
+    });
+
+    // Verify that the logOut function was called
+    expect(mockLogOut).toHaveBeenCalled();
+
+    // Verify that the alert function was called with the expected string
+    expect(alertSpy).toHaveBeenCalledWith("Logging you out");
+
+    // Restore the original window.alert function after the test
+    alertSpy.mockRestore();
+  });
+
+  it("does not call logOut on other key presses", () => {
+    // Mock the logOut function
+    const mockLogOut = jest.fn();
+
+    // Spy on the window.alert function
+    const alertSpy = jest.spyOn(window, "alert");
+
+    // Shallow render the App component with the mocked logOut function
+    const wrapper = shallow(<App logOut={mockLogOut} />);
+
+    // Simulate a key press that is not Control + H
+    wrapper.instance().handleKeyDown({
+      ctrlKey: true,
+      key: "a",
+    });
+
+    // Verify that the logOut function was not called
+    expect(mockLogOut).not.toHaveBeenCalled();
+
+    // Verify that the alert function was not called
+    expect(alertSpy).not.toHaveBeenCalled();
+
+    // Restore the original window.alert function after the test
+    alertSpy.mockRestore();
+  });
 });
