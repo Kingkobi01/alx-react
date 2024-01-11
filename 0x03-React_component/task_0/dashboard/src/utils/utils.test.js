@@ -1,16 +1,17 @@
-import { getFooterCopy, getFullYear, getLatestNotification } from "./utils";
+import React from 'react';
+import { getFullYear, getFooterCopy, getLatestNotification } from './utils';
 
-test("should return current year", () => {
-  expect(getFullYear()).toBe(new Date().getFullYear());
+it('getFullYear', () => {
+  expect(getFullYear()).toEqual(new Date().getFullYear());
 });
-
-test("should return correct footer copy", () => {
-  expect(getFooterCopy(true)).toBe("Holberton School");
-  expect(getFooterCopy(false)).toBe("Holberton School main dashboard");
+it('getFooterCopy with true', () => {
+  expect(getFooterCopy(true)).toEqual('Holberton School');
 });
-
-test("should return correct notification", () => {
-  expect(getLatestNotification()).toBe(
-    "<strong>Urgent requirement</strong> - complete by EOD"
+it('getFooterCopy with false', () => {
+  expect(getFooterCopy(false)).toEqual('Holberton School main dashboard');
+});
+it('getLatestNotification', () => {
+  expect(getLatestNotification()).toEqual(
+    '<strong>Urgent requirement</strong> - complete by EOD'
   );
 });

@@ -1,61 +1,40 @@
-import PropTypes from "prop-types";
-import React from "react";
-import close_icon from "../assets/close-icon.png";
-import { getLatestNotification } from "../utils/utils";
-import NotificationItem from "./NotificationItem";
-import "./Notifications.css";
+import React from 'react';
+import './Notifications.css';
+import close_icon from '../assets/close-icon.png';
+import { getLatestNotification } from '../utils/utils';
 
-export const Notifications = ({ displayDrawer = false }) => (
-  <>
-    <div className="menuItem">
-      <p>Your Notifications</p>
+const Notifications = () => {
+  return (
+    <div className='Notifications'>
+      <p>Here is the list of notifications</p>
+      <ul>
+        <li data-priority='default'>New course available</li>
+        <li data-priority='urgent'>New resume available</li>
+        <li data-priority='urgent'>
+          <div
+            dangerouslySetInnerHTML={{ __html: `${getLatestNotification()}` }}
+          ></div>
+        </li>
+      </ul>
+      <button
+        type='button'
+        aria-label='Close'
+        onClick={() => console.log('Close button has been clicked')}
+        style={{
+          display: 'inline-block',
+          position: 'absolute',
+          top: '16px',
+          right: '16px',
+          background: 0,
+          border: 0,
+          outline: 'none',
+          cursor: 'pointer',
+        }}
+      >
+        <img src={close_icon} alt='' style={{ width: '8px', height: '8px' }} />
+      </button>
     </div>
-    {displayDrawer && (
-      <div className="Notifications">
-        <p>Here is the list of notifications</p>
-        <ul>
-          {/* <li data="default">New course available</li>
-      <li data="urgent">New resume available</li>
-      <li data="urgent">{getLatestNotification()}</li>
-      <li
-        data="urgent"
-        dangerouslySetInnerHTML={{ __html: getLatestNotification() }}
-      ></li> */}
-          <NotificationItem type="default" value="New course available" />
-          <NotificationItem type="urgent" value="New resume available" />
-          <NotificationItem type="urgent" value={getLatestNotification()} />
-          <NotificationItem
-            type="urgent"
-            // value={getLatestNotification()}
-            html={{ __html: getLatestNotification() }}
-          />
-        </ul>
-        <button
-          aria-label="close"
-          style={{
-            position: "absolute",
-            right: "1em",
-            top: "1em",
-            border: 0,
-            background: "none",
-          }}
-          onClick={() => {
-            console.log("Close button has been clicked");
-          }}
-        >
-          <img
-            src={close_icon}
-            style={{
-              width: "1em",
-            }}
-            alt=""
-          />
-        </button>
-      </div>
-    )}
-  </>
-);
-
-Notifications.propTypes = {
-  displayDrawer: PropTypes.bool,
+  );
 };
+
+export default Notifications;
